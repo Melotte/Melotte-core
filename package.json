@@ -1,24 +1,28 @@
 {
   "name": "melotte-core",
   "version": "0.1.0",
-  "description": "Docker for the dweb",
-  "type": "module",
+  "description": "User-powered dweb platform",
+  "type": "commonjs",
   "engines": {
-    "node": ">= 16.13"
+    "node": ">= 16.13 <17"
   },
   "devDependencies": {
+    "@types/elliptic": "^6.4.14",
+    "@types/fs-extra": "^9.0.13",
     "@types/jest": "~27.4",
+    "@types/level": "^6.0.1",
+    "@types/lru-cache": "^7.5.0",
     "@types/node": "~16.11",
-    "@types/orbit-db": "orbitdb/orbit-db-types",
-    "@typescript-eslint/eslint-plugin": "~5.14",
-    "@typescript-eslint/parser": "~5.14",
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0",
     "eslint": "~8.11",
     "eslint-config-prettier": "~8.5",
     "eslint-plugin-jest": "~26.1",
+    "fs-extra": "^10.0.1",
     "ipfs-core-types": "^0.10.1",
     "jest": "~27.5",
     "prettier": "~2.5",
-    "rimraf": "~3.0",
+    "rimraf": "^3.0.2",
     "ts-jest": "~27.1",
     "tsutils": "~3.21",
     "typescript": "~4.6"
@@ -26,19 +30,39 @@
   "scripts": {
     "start": "node build/src/main.js",
     "clean": "rimraf coverage build tmp",
-    "prebuild": "npm run lint",
+    "prebuild": "yarn lint",
     "build": "tsc -p tsconfig.json",
     "build:watch": "tsc -w -p tsconfig.json",
-    "build:release": "npm run clean && tsc -p tsconfig.release.json",
+    "build:release": "yarn clean && tsc -p tsconfig.release.json",
     "lint": "eslint . --ext .ts",
     "test": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "postinstall": "patch-package"
   },
   "author": "planetoryd",
   "license": "GPL-3.0",
   "dependencies": {
+    "@ipld/dag-cbor": "^7.0.1",
+    "await-sleep": "^0.0.1",
+    "deep-equal": "^2.0.5",
+    "ejdb2_node": "^2.62.5",
+    "elliptic": "^6.5.4",
     "ipfs-http-client": "^56.0.1",
-    "orbit-db": "./orbit-db",
+    "level": "^7.0.1",
+    "libp2p-crypto": "^0.21.2",
+    "lru-cache": "^7.7.1",
+    "multiformats": "^9.6.4",
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0",
+    "reachdown": "^1.1.0",
+    "secp256k1": "^4.0.3",
     "tslib": "~2.3.1"
+  },
+  "overrides": {
+    "ipfs-utils": "=9.0.2"
+  },
+  "volta": {
+    "node": "16.14.2",
+    "yarn": "1.22.18"
   }
 }

@@ -1,0 +1,9 @@
+{
+    "cSpell.words": [
+        "Mgmt"
+    ],
+    "jest.jestCommandLine": "yarn test:watch",
+    "debug.javascript.defaultRuntimeExecutable": {
+        "pwa-node": "node"
+    }
+}

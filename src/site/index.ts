@@ -1,8 +1,11 @@
 import {MgmtChain} from "../mgmt/"
 import * as SiteDB from "./database"
-
+import {Entry} from "./entry"
 export class Site {
-    constructor(public mgmt: MgmtChain, public database: SiteDB.Database[]) {
-        
+    public database?: SiteDB.Database[]
+    constructor(public mgmt: MgmtChain) {
+
     }
 }
+
+export {Entry} from "./entry"

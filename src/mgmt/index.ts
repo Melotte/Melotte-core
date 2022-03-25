@@ -1,6 +1,5 @@
 import {IPFS} from "ipfs-core-types"
-
-export class MgmtChain {
-    constructor(protected ipfs: IPFS) {
-    }
+import {IPLDLog} from '../ipld-log'
+export class MgmtChain extends IPLDLog {
+    
 }
