@@ -104,3 +104,6 @@ dist
 .tern-port
 
 random/
+
+test/keystore-test 
+test/signingKeys
